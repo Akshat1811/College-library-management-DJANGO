@@ -1,0 +1,100 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+    .header_text{
+
+            text-align: center;
+            color: black;
+            font-family:"Courier New";
+            font-style: italic;
+        }
+    #bg
+    {
+        background-size: 100%;
+    }
+</style>
+
+<head>
+<style>
+.content_table{
+            border-collapse: collapse;
+            border-radius: 5px 5px 0 0;
+            margin: 25px 0;
+            margin-top: 75px;
+            margin-left: 480px;
+            font-size: 0.9em;
+            min-width: 400px;
+            overflow: hidden;
+            box-shadow:0 0 20px lightslategray;
+        }
+        .content_table thead tr{
+            background-color: black;
+            color: white;
+            text-align: left;
+            font-family: "Courier New";
+            
+        }
+        .content_table td{
+             transition: transform 500ms ease-in-out;
+            will-change: transform;
+
+        }
+        .content_table td:hover{
+             transform: scale(1.5);
+             background-color: transparent;
+        }
+        .content_table th,
+            .content_table td{
+            padding: 12px 15px;
+        }
+
+        .content_table tbody tr:nth-of-type(even){
+            background-color: ivory;
+            color: black;
+        }
+
+        .content_table tbody tr:last-of-type{
+            border-bottom: 2px solid black;
+            border-radius: 20px 20px 20px 20px;
+            overflow: hidden;
+        }
+        
+    #bg{
+        background-size: 100%;
+    }
+
+</style>
+<meta charset="utf-8">
+<title>TRANSACTIONS</title>
+</head>
+<body id="body" style="background-image: url('{% static "images/D.jpg"%}')" >
+<div class="header_text">
+    <h1>TRANSACTIONS</h1>
+</div>
+<table class="content_table">
+    <thead>
+    <tr>
+
+        <th>COLLEGE_ID</th>
+        <th>TIME_OF_TRANSACTION</th>
+        <th>COST</th>
+        <th>BOOK_ID</th>
+        <th>SELLER_ID</th>
+    </tr>
+    </thead>
+    {% for i in payments %}
+        <tr>
+            <td>{{i.college.College_id}}</td>
+            <td>{{i.time_of_transaction}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.book.Book_id}}</td>
+            <td>{{i.seller.Seller_id}}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+</html>

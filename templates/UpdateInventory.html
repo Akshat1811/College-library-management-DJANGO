@@ -1,0 +1,98 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<style>
+    .header_text{
+    text-align: center;
+    color: black;
+    font-family:"Lobster";
+    font-size: 28px;
+    }
+     *, *:before, *:after {
+     box-sizing: border-box;
+    }
+    input[type=text] {
+        padding: 10px;
+        margin:10px 0;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius:10px;
+        width:60%;
+        border:none;
+        
+    }
+    .button {
+
+    /*remove default behavior */
+    appearance:none;
+    -webkit-appearance:none;
+
+    /* usual styles */
+    padding:10px;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:10px;
+    width:20%;
+    margin:15px;
+    }
+    .form-row{
+            background-color: black;
+        }
+        .form-group{
+            background-color: transparent;
+        }
+    
+    .card-body{
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            margin-left: 500px;
+            margin-right: 500px;
+            background-color: transparent;
+            color: black;
+        }
+    .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.form1 {
+width: 350px;
+padding: 20px;
+border: none;
+align-self: center; 
+}
+#bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+</style>
+</head>
+<body id="bg" style="background-image: url('{% static 'images/C.jpg'%}')">
+<div class="header_text">
+<h1>Update Inventory</h1>
+</div>
+
+<div class="fieldWrapper">
+<div class="card-body">
+<form action="{% url 'upd_inventory' %}" method="POST" align = center>
+ {% csrf_token %}
+    {% for field in form.visible_fields %}
+        <div class="form-group">
+            
+               {% render_field field class="form-control" style="padding: 12.5px"%}
+    {% endfor %}
+<br><br/>
+<input type="submit" value="Update" class="button"><br/>
+</form>
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+    {% csrf_token %}
+	<style>
+    .header_text{
+    text-align: center;
+    color: black;
+    font-family:"Lobster";
+    font-size: 28px;
+    }
+    .form-row{
+    background-color: black;
+    }
+    .form-group{
+    background-color: black;
+    }
+    .card-body{
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: transparent;
+    color: black;
+    }
+    .form-group{
+    background-color: transparent;
+    }
+	.inventory_table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left:auto; 
+    margin-right:auto;
+    }
+    .inventory_table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    }
+    .inventory_table th,
+    .inventory_table td {
+    padding: 12px 15px;
+    }
+    .inventory_table tbody tr {
+        background-color: #f3f3f3;
+    border-bottom: 1px solid #dddddd;
+    }
+    .inventory_table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+    .inventory_table tbody tr:last-of-type {
+    background-color: #f3f3f3;
+    border-bottom: 2px solid #009879;
+    }
+    .inventory_table tbody tr.active-row {
+        background-color: #f3f3f3;
+    font-weight: bold;
+    color: #009879;
+    }
+    input[type=submit]{
+
+    /* remove default behavior */
+    appearance:none;
+    -webkit-appearance:none;
+
+    /* usual styles */
+    padding:7.5px;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:10px;
+    width:15%;
+    margin:10px;
+    }
+    #bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+    </style>
+</head>
+<body id="bg" style="background-image: url('{% static 'images/D.jpg'%}')">
+	<div class="header_text">
+    <h1>Books Inventory</h1>
+    </div>
+ <table class="inventory_table">
+    <thead>
+    <tr>
+        <th>BOOK ID</th>
+        <th style="padding-right: 70px;padding-left: 70px" >BOOK NAME</th>
+        <th>PUBLISHER</th>
+        <th style="padding-right: 30px;padding-left: 30px">AUTHOR</th>
+        <th>BOOK TYPE</th>
+        <th>PRICE POINTS</th>
+        <th>QUANTITY</th>
+    </tr>
+    </thead>
+    {% for i in books %}
+        <tr>
+            <td>{{i.Books.Book_id}}</td>
+            <td>{{i.Books.Book_name}}</td>
+            <td>{{i.Books.Publisher}}</td>
+            <td>{{i.Books.Author}}</td>
+            <td>{{i.Books.Book_type}}</td>
+            <td>{{i.Books.Price_points}}</td>
+            <td>{{i.Book_count}}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+</body>
+</html>

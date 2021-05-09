@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <style>
+      .header_text{
+        text-align: center;
+        color: black;
+        font-family:"Lobster";
+        font-size: 28px;
+        }
+
+      .books_inventory{
+            position: absolute;
+            height:250px;
+            width:250px;
+            left: 300px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .books_inventory:hover{
+            background-color: black;
+            color: white;
+        }
+      .members_list{
+            position: absolute;
+            height:250px;
+            width:250px;
+            left: 647px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .members_list:hover{
+            background-color: black;
+            color: white;
+        }
+      .place_order{
+            position: absolute;
+            height:250px;
+            width:250px;
+            right:300px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .place_order:hover{
+            background-color: black;
+            color: white;
+        }
+      .upd_inventory{
+            position: absolute;
+            height:250px;
+            width:250px;
+            left: 300px;
+            bottom:75px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .upd_inventory:hover{
+            background-color: black;
+            color: white;
+        }
+      .change_user_roles{
+            position: absolute;
+            height:250px;
+            width:250px;
+            left: 647px;
+            bottom:75px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .change_user_roles:hover{
+            background-color: black;
+            color: white;
+        }
+      .weekly_summary{
+            position: absolute;
+            height:250px;
+            width:250px;
+            right:300px;
+            bottom:75px;
+            background-color: transparent;
+            font-family: "Lobster";
+            font-size: 30px;
+            color: black;
+            transition-duration: 0.4s;
+            border: 5px solid black;
+            border-radius: 12px;
+            padding: 14px 40px;
+        }
+      .weekly_summary:hover{
+            background-color: black;
+            color: white;
+        } 
+    </style>
+</head>
+<body style="background-image: url('{% static "images/L.jpg"%}')">
+
+   <div class="header_text">
+    <h1>Home</h1>
+   </div> 
+   <div class = "row1">
+
+   <button class="books_inventory" onclick="location.href='{% url 'show_books' %}'">Books Inventory</button>
+
+   <button class="members_list" onclick="location.href='{% url 'print_college_users' %}'">List of Members</button>
+   <button class="place_order" onclick="location.href='{% url 'enter_order_specs' %}'">Place an order</button>
+   <button class="upd_inventory" onclick="location.href='{% url 'upd_inventory' %}'">Update Inventory</button>
+   <button class="change_user_roles" onclick="location.href='{% url 'admin_req' %}'">Student Book Requests</button>
+   <button class="weekly_summary" onclick="location.href='{% url 'payment_details' %}'">Transactions</button>
+   </div>
+</body>
+</html>

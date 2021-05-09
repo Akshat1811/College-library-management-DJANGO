@@ -1,0 +1,98 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+    .header_text{
+
+            text-align: center;
+            color: black;
+            font-family:"Courier New";
+            font-style: italic;
+        }
+</style>
+
+<head>
+<style>
+.content_table{
+            border-collapse: collapse;
+            border-radius: 5px 5px 0 0;
+            margin: 25px 0;
+            margin-top: 75px;
+            margin-left: 20px;
+            font-size: 0.9em;
+            min-width: 400px;
+            overflow: hidden;
+            box-shadow:0 0 20px lightslategray;
+        }
+        .content_table thead tr{
+            background-color: black;
+            color: white;
+            text-align: left;
+            font-family: "Courier New";
+            
+        }
+        .content_table td{
+             transition: transform 500ms ease-in-out;
+            will-change: transform;
+
+        }
+        .content_table td:hover{
+             transform: scale(1.5);
+             background-color: transparent;
+        }
+        .content_table th,
+            .content_table td{
+            padding: 12px 15px;
+        }
+
+        .content_table tbody tr:nth-of-type(even){
+            background-color: ivory;
+            color: black;
+        }
+
+        .content_table tbody tr:last-of-type{
+            border-bottom: 2px solid black;
+            border-radius: 20px 20px 20px 20px;
+            overflow: hidden;
+        }
+
+</style>
+<meta charset="utf-8">
+<title>COLLEGE_USERS</title>
+</head>
+<body id="body" style="background-image: url('{% static "images/D.jpg"%}')" >
+<div class="header_text">
+    <h1>COLLEGE_USERS</h1>
+</div>
+<table class="content_table">
+    <thead>
+    <tr>
+
+        <th>STUDENT_ID</th>
+        <th>STUDENT_FIRST_NAME</th>
+        <th>STUDENT_LAST_NAME</th>
+        <th>GENDER</th>
+        <th>AGE</th>
+        <th>MEMBERSHIP_TYPE</th>
+        <th>STUDENT_EMAIL</th>
+        <th>STUDENT_PHONE_NUMBER</th>
+    </tr>
+    </thead>
+    {% for i in student %}
+        <tr>
+            <td>{{i.student_id}}</td>
+            <td>{{i.first_name}}</td>
+            <td>{{i.last_name}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.membership}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone_no}}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+</html>
